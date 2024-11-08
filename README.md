@@ -1,19 +1,24 @@
 # Knowledge Infused AI
 
 This is a research initiative by Intuit AI Research and focuses on techniques and methodologies to incorporate knowledge of various forms to improve the performance of AI systems. Some of our work in this space include -
-- Hallucination detection and mitigation :- [(SAC3)](#sac3-reliable-hallucination-detection-in-black-box-language-models-via-semantic-aware-cross-check-consistency)Semantic-aware cross-check consistency, [DCR-Consistency](#dcr-consistency--divide-conquer-reasoning-for-consistency-evaluation-and-improvement-of-large-language-models): Divide-Conquer-Reasoning for Consistency Evaluation and Improvement of Large Language Models
-- Uncertainty quantification :- [SPUQ](#spuq--perturbation-based-uncertainty-quantification-for-large-language-models): Perturbation-Based Uncertainty Quantification for Large Language Models
+- Synthetic Knowledge Ingestion :- [Ski](#ski-towards-knowledge-refinement-and-injection-for-enhancing-large-language-models) Knowledge Refinement and Injection for Enhancing Large Language Models
+- RAG Context Ranking :- [HyQE](#hyqe-ranking-contexts-with-hypothetical-query-embeddings) Ranking Contexts with Hypothetical Query Embeddings
 
 ## :fire: News
-- [2024.04] [Intuit presents innovative approach to Quantify LLM Uncertainty at EACL 2024](https://medium.com/intuit-engineering/intuit-presents-innovative-approach-to-quantifying-llm-uncertainty-at-eacl-2024-f839a8f1b89b)
-- [2024.04] SPUQ [arxiv link](https://arxiv.org/abs/2403.02509) available
-- [2024.02] SAC3 work presented in [AI for Production](https://home.mlops.community/home/events/ai-in-production-2024-02-15) organized by MLOps community! 
-- [2024.01] DCR-consistency [arxiv link](https://arxiv.org/abs/2401.02132) available.
-- [2023.12] [Intuit AI Research Debuts Novel Approach to Reliable Hallucination Detection in Black Box Language Models at EMNLP 2023](https://medium.com/intuit-engineering/intuit-ai-research-debuts-novel-approach-to-reliable-hallucination-detection-in-black-box-language-746d7f720c50) 
-- [2023.11] SAC3 [arxiv link](https://arxiv.org/abs/2311.01740) available.
-- [2023.10] SAC3 paper accepted at EMNLP 2023.
+- [2024.11] Blog [Enhancing LLMs with Synthetic Knowledge Ingestion: A Novel Approach from Intuit AI Research at EMNLP 2024](https://medium.com/intuit-engineering/enhancing-llms-with-synthetic-knowledge-ingestion-a-novel-approach-from-intuit-ai-research-at-01e8f02b9c46)
+- [2024.10] HyQE paper accepted at EMNLP 2024
+- [2024.10] Ski paper accepted at EMNLP 2024
 
-## Hallucination Detection and Mitigation
-### SAC3: Reliable Hallucination Detection in Black-Box Language Models via Semantic-aware Cross-check Consistency
-[[Paper]](https://arxiv.org/abs/2311.01740) [[Code]](https://github.com/intuit-ai-research/LLM-response-quality-eval/tree/master/SAC3)
+## Synthetic Knowledge Ingestion
+### Ski: Towards Knowledge Refinement and Injection for Enhancing Large Language Models
+[[Paper]](https://arxiv.org/pdf/2410.09629) [[Code]](https://github.com/intuit-ai-research/knowledge-infused-ai/tree/main/synthetic-knowledge-ingestion)
 
+Large Language Models (LLMs) have shown strong capabilities in capturing factual knowledge across various domains. However, refining their knowledge on existing data or integrating new information from external sources remains a challenge. This work introduces Synthetic Knowledge Ingestion (Ski), a novel framework for creating high-quality data representations from unstructured knowledge sources to enhance LLMs’ factual accuracy and knowledge injection capabilities. 
+
+## RAG Context Ranking
+### HyQE: Ranking Contexts with Hypothetical Query Embeddings
+
+[[Paper]](https://arxiv.org/abs/2410.15262) [[Code]](https://github.com/zwc662/hyqe)
+
+In retrieval-augmented systems, context ranking techniques are commonly employed to reorder the retrieved contexts based on their relevance to a user query. A standard approach is to measure this relevance through the similarity between contexts and queries in the embedding space. However, such similarity often fails to capture the relevance. Alternatively, large language models (LLMs) have been used for ranking contexts. However, they can encounter scalability issues when the number of candidate contexts grows and the context window sizes of the LLMs remain constrained. Additionally, these approaches require fine-tuning LLMs with domain-specific data. In this work, we introduce a scalable ranking framework that combines embedding similarity and LLM capabilities without requiring LLM fine-tuning. Our framework uses a pre-trained LLM to hypothesize the user query based on the retrieved contexts and ranks the context based on the similarity between the hypothesized queries and the user query. Our framework is efficient at inference time and is compatible with many other retrieval and ranking techniques. Experimental results show that our method improves the ranking performance across multiple benchmarks.
+This work has been done in collaboration with Boston University.
